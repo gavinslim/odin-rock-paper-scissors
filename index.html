@@ -4,21 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Rock-Paper-Scissor</title>
 </head>
 <body>
+    <script src="script.js" defer></script>
     
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissor">Scissors</button>
-    <script src="script.js"></script>
+    <div class="header">
+        <h1>Rock-Paper-Scissor</h1>
+        <div>A simple rock paper scissors games!</div>
+    </div>
+    
+    <div class="results">
+        <div id="round-result">&nbsp</div>
+    </div>
+    
+    <div class="scores">
+        <div class="player-group">
+            <div id="player-score">0</div>
+            <div>You</div>
+        </div>
+        <div class="comp-group">
+            <div id="comp-score">0</div>
+            <div>Computer</div>
+        </div>
+    </div>
 
-    <div id="round-result">&nbsp</div>
+    <div class="player-buttons">  
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissor">Scissors</button>
+    </div>
 
-    <div id="player-score">0</div>
-    <div id="comp-score">0</div>
+    <div id="retry-space">&nbsp</div>
 
-    <div id="game-result"></div>
-
+    <div class="footer">
+        Gavin Lim, The Odin Project 2021
+    </div>
 </body>
+
 </html>

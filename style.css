@@ -1,0 +1,46 @@
+body {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.scores {
+    display: flex;
+    gap: 80px;
+}
+
+.player-group, .comp-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#player-score, #comp-score {
+    justify-content: center;
+}
+
+#round-result {
+    background: red;
+}
+
+#retry-space {
+    background: blue;
+}

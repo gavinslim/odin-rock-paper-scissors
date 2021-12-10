@@ -54,26 +54,27 @@ function retry() {
     });
 
     // Remove retry button
-    const body = document.querySelector('body');
+    const body = document.getElementById('retry-space');
     const retry_button = document.getElementById("retry");
     const throwaway_node = body.removeChild(retry_button);
 
     // Reset results and displays
-    document.getElementById('round-result').innerHTML = ""; 
+    document.getElementById('round-result').innerHTML = "\n"; 
     document.getElementById('player-score').innerHTML = player_score;
     document.getElementById('comp-score').innerHTML = comp_score;
-    document.getElementById('game-result').innerHTML = "";     
+
 }
 
 // Create retry button and disable rock paper scissors button
 function create_retry() {
     // Add 'retry' button
-    const body = document.querySelector('body');
     const retry_button = document.createElement('button');
     retry_button.innerHTML = "Retry";
     retry_button.id = "retry";
 
-    body.appendChild(retry_button);
+    const body = document.querySelector('body');
+    const temp = document.getElementById('retry-space');
+    temp.appendChild(retry_button);
     retry_button.addEventListener('click', retry);
 
     // Disable game buttons
@@ -87,7 +88,6 @@ function create_retry() {
 }
 
 function play_game(e) {
-
     // Play round 
     comp_selection = computerPlay();
     round_result = playRound(this.id, comp_selection);
@@ -107,17 +107,12 @@ function play_game(e) {
 
     // Reset game if max round reached
     if (player_score >= max_round) {
-        final_result = "YOU WON! :)";
+        document.getElementById('round-result').innerHTML = "YOU WON! :)";
         create_retry();
     } else if (comp_score >= max_round) {
-        final_result = "YOU LOSE! :(";
+        document.getElementById('round-result').innerHTML = "YOU LOSE! :(";
         create_retry();
-    } else {
-        final_result = "";
-    }
-
-    // Display final result
-    document.getElementById('game-result').innerHTML = final_result;
+    } 
 }
 
 function game() {

@@ -10,13 +10,13 @@ function computerPlay() {
         return "paper"
     } else {
         // console.log("scissor");
-        return "scissor"
+        return "scissors"
     }
 }
 
 function msg(user, computer, result) {
     if (result == -1) {
-        return "You lose! " + computer + " beats " + user;
+        return "You lost! " + computer + " beats " + user;
     } else if (result == 0) {
         return "Tie! " + user + " ties with " + computer;
     } else {
@@ -25,17 +25,17 @@ function msg(user, computer, result) {
 }
 
 function playRound(playSelection, computerSelection) {
-    if (playSelection == "rock" && computerSelection == "scissor")  {return 1;}
+    if (playSelection == "rock" && computerSelection == "scissors")  {return 1;}
     if (playSelection == "rock" && computerSelection == "rock")     {return 0;}
     if (playSelection == "rock" && computerSelection == "paper")    {return -1;}
 
-    if (playSelection == "paper" && computerSelection == "scissor") {return -1;}  
+    if (playSelection == "paper" && computerSelection == "scissors") {return -1;}  
     if (playSelection == "paper" && computerSelection == "rock")    {return 1;}
     if (playSelection == "paper" && computerSelection == "paper")   {return 0;}
 
-    if (playSelection == "scissor" && computerSelection == "scissor")   {return 0;}
-    if (playSelection == "scissor" && computerSelection == "rock")      {return -1;}
-    if (playSelection == "scissor" && computerSelection == "paper")     {return 1;}
+    if (playSelection == "scissors" && computerSelection == "scissors")   {return 0;}
+    if (playSelection == "scissors" && computerSelection == "rock")      {return -1;}
+    if (playSelection == "scissors" && computerSelection == "paper")     {return 1;}
 
     return "ERROR"
 }
@@ -53,28 +53,20 @@ function retry() {
         }
     });
 
-    // Remove retry button
-    const body = document.getElementById('retry-space');
-    const retry_button = document.getElementById("retry");
-    const throwaway_node = body.removeChild(retry_button);
+    // Hide retry button
+    document.getElementById('retry').style.visibility = 'hidden';
 
     // Reset results and displays
-    document.getElementById('round-result').innerHTML = "\n"; 
+    document.getElementById('round-result').style.visibility='hidden';
     document.getElementById('player-score').innerHTML = player_score;
     document.getElementById('comp-score').innerHTML = comp_score;
 
 }
 
 // Create retry button and disable rock paper scissors button
-function create_retry() {
-    // Add 'retry' button
-    const retry_button = document.createElement('button');
-    retry_button.innerHTML = "Retry";
-    retry_button.id = "retry";
-
-    const body = document.querySelector('body');
-    const temp = document.getElementById('retry-space');
-    temp.appendChild(retry_button);
+function prompt_retry() {
+    const retry_button =  document.getElementById('retry');
+    retry_button.style.visibility = 'visible';
     retry_button.addEventListener('click', retry);
 
     // Disable game buttons
@@ -99,19 +91,24 @@ function play_game(e) {
     message = msg(this.id, comp_selection, round_result);
 
     // Display round-result
-    document.getElementById('round-result').innerHTML = message; 
-
+    round_result = document.getElementById('round-result');
+    round_result.innerHTML = message; 
+    round_result.style.visibility='visible';
+    
     // Display user and comp score
     document.getElementById('player-score').innerHTML = player_score;
     document.getElementById('comp-score').innerHTML = comp_score;
 
+    // Hide retry button
+    document.getElementById('retry').style.visibility = 'hidden';
+
     // Reset game if max round reached
     if (player_score >= max_round) {
-        document.getElementById('round-result').innerHTML = "YOU WON! :)";
-        create_retry();
+        round_result.innerHTML = "Congratulations. It seems you are indeed luckier than a computer.";
+        prompt_retry();
     } else if (comp_score >= max_round) {
-        document.getElementById('round-result').innerHTML = "YOU LOSE! :(";
-        create_retry();
+        round_result.innerHTML = "Good game. As expected, you are unfortunately not as lucky as expected.";
+        prompt_retry();
     } 
 }
 

@@ -1,11 +1,10 @@
 body {
-    font-family: Roboto, sans-serif;
+    font-family: Courier New , sans-serif;
     margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
 }
 
 .header {
@@ -13,17 +12,76 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
 
-.results {
+
+
+/* Player and Computer scores */
+.scores {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 20px;
 }
 
-.scores {
+.score-tally {
     display: flex;
-    gap: 80px;
+    gap: 50px;
+}
+
+.player, .comp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#player-score, #comp-score {
+    font-size: 100px;
+}
+
+/* Round display */
+.results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+#round-result {
+    font-size: 20px;
+}
+
+/* Player Buttons */
+.player-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0;
+    gap: 50px;
+}
+
+#rock, #paper, #scissors {
+    background: transparent;
+    border: none;
+    background-size: cover;
+    width: 90px;
+    height: 90px;
+}
+
+#rock {
+    background-image: url(images/rock.png);
+}
+
+#paper {
+    background-image: url(images/paper.png);
+}
+
+#scissors {
+    background-image: url(images/scissor.png);
 }
 
 .player-group, .comp-group{
@@ -33,14 +91,32 @@ body {
     gap: 10px;
 }
 
-#player-score, #comp-score {
+/* Retry button */
+.retry-space {
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex: 1;
 }
 
-#round-result {
-    background: red;
+#retry {
+    visibility: hidden;
+    background: transparent;
+    border: none;
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    background-image: url(images/retry.png);
 }
 
-#retry-space {
-    background: blue;
+/* Footer */
+.footer {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    max-height: 8vh;
 }
+
+
+

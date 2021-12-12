@@ -62,6 +62,9 @@ function retry() {
     document.getElementById('player-score').classList.remove('green');
     document.getElementById('comp-score').innerHTML = comp_score;
     document.getElementById('comp-score').classList.remove('green');
+
+    document.getElementById('player-image').src = "images/question.png";
+    document.getElementById('comp-image').src = "images/question.png";
 }
 
 // Create retry button and disable rock paper scissors button
@@ -80,10 +83,24 @@ function prompt_retry() {
     });
 }
 
+/* Change picture of what user and computer chose */
+function change_hands(player_select, comp_select) {
+    if (player_select == "retry") {
+        return
+    }
+
+    const player = document.getElementById('player-image');
+    player.src = "images/" + player_select + "_clicked.png";
+    
+    const user = document.getElementById('comp-image');
+    user.src = "images/" + comp_select + "_clicked.png";
+}
+
 function play_game(e) {
     // Play round based on selected button 
     comp_selection = computerPlay();
     round_result = playRound(this.id, comp_selection);
+    change_hands(this.id, comp_selection);
 
     const player = document.getElementById('player-score');
     const computer = document.getElementById('comp-score');

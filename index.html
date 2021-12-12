@@ -12,43 +12,38 @@
     
     <div class="header">
         <h1>Are you luckier than your computer?</h1>
-        <div>Test your luck. Defeat your computer in a simple game of rock paper scissors.</div>
-        <div>Select one of the three options available.</div>
+        <div style="font-size: 20px;">Test your luck. Defeat your computer in a simple game of rock paper scissors.</div>
+        <div style="font-size: 20px;">Select one of the three options available.</div>
     </div>
-        
+     
     <div class="scores">
-        <div class="score-description">First to 5 points, wins the game</div>
+        <div class="score-description" style="font-size: 20px;">First to 5 points wins the game</div>
         <div class="score-tally">
             <div class="player">
                 <div id="player-score">0</div>
-                <div>You</div>
+                <div style="font-size: 20px;">You</div>
             </div>
+            <img id="player-image" src="images/question.png">
+            <div id="vs">vs</div>
+            <img id="comp-image" src="images/question.png">
             <div class="comp">
                 <div id="comp-score">0</div>
-                <div>Computer</div>
+                <div style="font-size: 20px;">Computer</div>
             </div>
         </div>
-    </div>
-
-    <div class="results">
         <div id="round-result">&nbsp</div>
     </div>
 
-    <div class="player-buttons">  
-        <button id="rock"></button>
-        <button id="paper"></button>
-        <button id="scissors"></button>
-    </div>
+    <hr>
 
-    <div class="retry-space">
+    <div class="user-section">
+        <div class="player-buttons">  
+            <button id="rock"></button>
+            <button id="paper"></button>
+            <button id="scissors"></button>
+        </div>
         <button id="retry"></button>
     </div>
-    
-    <!-- <div class="audioo">
-        <audio id="audio" src="audio/squid-game.mp3" autoplay loop="true" controls>
-            <p>If you are reading this, then your browser does not support the audio element.</p>
-        </audio>
-    </div> -->
 
     <div class="footer">
         <div style="color: grey;">Gavin Lim, The Odin Project 2021 </div>

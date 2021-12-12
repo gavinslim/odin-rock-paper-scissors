@@ -1,15 +1,15 @@
 
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 function computerPlay() {
     out =  Math.floor(Math.random() * (3-1 + 1)) + 1;
     if (out == 1) {
-        // console.log("rock");
         return "rock"
     } else if (out == 2) {
-        // console.log("paper");
         return "paper"
     } else {
-        // console.log("scissor");
         return "scissors"
     }
 }
@@ -49,7 +49,7 @@ function retry() {
     const buttons = document.querySelectorAll('button');
     buttons.forEach(button => {
         if (button.id != "retry") {
-            button.disabled = false;
+            button.classList.remove('do-nothing');
         }
     });
 
@@ -59,8 +59,9 @@ function retry() {
     // Reset results and displays
     document.getElementById('round-result').style.visibility='hidden';
     document.getElementById('player-score').innerHTML = player_score;
+    document.getElementById('player-score').classList.remove('green');
     document.getElementById('comp-score').innerHTML = comp_score;
-
+    document.getElementById('comp-score').classList.remove('green');
 }
 
 // Create retry button and disable rock paper scissors button
@@ -74,21 +75,32 @@ function prompt_retry() {
     buttons.forEach(button => {
         // Disable all buttons except for 'retry' button
         if (button.id != "retry") {
-            button.disabled = true;
+            button.classList.add('do-nothing');
         }
     });
 }
 
 function play_game(e) {
-    // Play round 
+    // Play round based on selected button 
     comp_selection = computerPlay();
     round_result = playRound(this.id, comp_selection);
 
-    // Increment player or comp score
-    if (round_result == 1) {player_score++;}
-    else if (round_result == -1) {comp_score++;}
+    const player = document.getElementById('player-score');
+    const computer = document.getElementById('comp-score');
 
-    message = msg(this.id, comp_selection, round_result);
+    // Increment player or comp score
+    if (round_result == 1) {
+        player_score++;
+        player.classList.add('green');
+        computer.classList.remove('green');
+    }
+    else if (round_result == -1) {
+        comp_score++;
+        computer.classList.add('green');
+        player.classList.remove('green');
+    }
+
+    message = msg(capitalize(this.id), capitalize(comp_selection), round_result);
 
     // Display round-result
     round_result = document.getElementById('round-result');
@@ -107,7 +119,7 @@ function play_game(e) {
         round_result.innerHTML = "Congratulations. It seems you are indeed luckier than a computer.";
         prompt_retry();
     } else if (comp_score >= max_round) {
-        round_result.innerHTML = "Good game. As expected, you are unfortunately not as lucky as expected.";
+        round_result.innerHTML = "Too bad. Unfortunately, you are not luckier than a computer.";
         prompt_retry();
     } 
 }

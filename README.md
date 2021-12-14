@@ -2,11 +2,12 @@
 
 Implementation of Rock Paper Scissors game from The Odin Project [curriculum](https://www.theodinproject.com/)
 
+[Live Demo](http://gavinslim.com/odin-rock-paper-scissors/)
+
 Features:
-- When game is over, user is unable to select buttons
-- User is prompted a retry button at the end of the game
-- Player buttons change color or expand when hovered over
-- Message after game is different depending on the win-to-loss ratio
-- Round message varies
-- Display computer selection
-- Add background music, give user option to mute music
+- [Done] When game is over, disable user's buttons except for retry button
+- [Done] User is prompted a retry button at the end of the game
+- [Done] Player buttons change color and expand when hovered over
+- Concluding game message is different depending on the win-to-loss ratio
+- Message after each round varies
+- [Done] Display computer and player selection

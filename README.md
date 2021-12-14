@@ -4,7 +4,7 @@ Implementation of Rock Paper Scissors game from The Odin Project [curriculum](ht
 
 ![Demo gif](demo.gif)
 
-<a href="http://gavinslim.com/odin-rock-paper-scissors/" target="_blank">Live Demo!</a> :point_left:
+[Live Demo](http://gavinslim.com/odin-rock-paper-scissors/) :point_left:
 
 Features:
 - [Done] When game is over, disable user's buttons except for retry button

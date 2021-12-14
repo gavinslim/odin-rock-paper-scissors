@@ -2,6 +2,8 @@
 
 Implementation of Rock Paper Scissors game from The Odin Project [curriculum](https://www.theodinproject.com/)
 
+![Demo gif](demo.gif)
+
 [Live Demo](http://gavinslim.com/odin-rock-paper-scissors/)
 
 Features:

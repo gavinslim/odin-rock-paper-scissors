@@ -1,3 +1,7 @@
+:root {
+    --primary-dark: #333;
+}
+
 body {
     font-family: Courier New, sans-serif;
     margin: 0;
@@ -165,10 +169,26 @@ hr {
 .footer {
     display: flex;
     flex: 1;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     max-height: 8vh;
     background-color: lightgray;
+    gap: 20px;
 }
 
+.footer-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-github {
+    color: var(--primary-dark);
+    font-size: 32px;
+    transition: all 0.01s ease;
+}
+
+.fa-github:hover {
+    transform: scale(1.2);
+}
